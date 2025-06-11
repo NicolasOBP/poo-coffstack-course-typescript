@@ -6,7 +6,12 @@ function main() {
   //   maria.isBirthDayPassed(); protected method. Only Submembers can use
 
   console.log(maria);
-  console.log(maria.getFullName());
+
+  maria.firstName = "Maira Claer";
+
+  console.log(maria.fullName);
+
+  console.log(maria);
 }
 
 main();
