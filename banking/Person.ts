@@ -1,7 +1,7 @@
 export class Person {
   private _firstName: string;
-  lastName: string;
-  birthDate: Date;
+  private lastName: string;
+  private birthDate: Date;
 
   constructor(firstName: string, lastName: string, birthDate: Date) {
     this._firstName = firstName;
