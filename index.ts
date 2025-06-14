@@ -13,60 +13,28 @@ function main() {
   // mas continua herdando as operações da BankAccount
   // const mariaAccount = new BankAccount(maria, 100, "123");
 
-  // const maria = new Person("Maria", "da Silva", new Date("1990-10-10"));
-  // const mariaAccount = new SavingsAccounts(maria, 100, "123", 10);
-
-  // mariaAccount.addInterest();
-
-  // const lucas = new Person("Lucas", "Nogueira", new Date("1990-11-10"));
-  // const lucasAccount = new CurrentAccount(lucas, 100, "123", 50);
-
-  // mariaAccount.withdraw(150);
-  // lucasAccount.withdraw(150);
-
-  // // Toda SavingsAccounts/CurrentAccunt é uma BankAccount, mas nem toda BankAccount é uma SavingsAccounts/CurrentAccunt
-  // function transaction(
-  //   sender: BankAccount,
-  //   receiver: BankAccount,
-  //   amount: number
-  // ): void {
-  //   if (amount > 0 && amount <= sender.balance) {
-  //     sender.withdraw(amount);
-  //     receiver.deposit(amount);
-  //     console.log("Transaction successful");
-  //   } else {
-  //     console.log("Transaction failed: insufficient funds or invalid amount");
-  //   }
-  // }
-
   const maria = new Person("Maria", "da Silva", new Date("1990-10-10"));
-  const mariaAccount = new CompositionBankAccount(
-    maria,
-    100,
-    "123",
-    new StandardWithdraw()
-  );
+  const mariaAccount = new SavingsAccounts(maria, 100, "123", 10);
+
+  mariaAccount.addInterest();
 
   const lucas = new Person("Lucas", "Nogueira", new Date("1990-11-10"));
-  const lucasAccount = new CompositionBankAccount(
-    lucas,
-    100,
-    "123",
-    new OverdraftWithdraw(100)
-  );
+  const lucasAccount = new CurrentAccount(lucas, 100, "123", 50);
 
+  mariaAccount.withdraw(150);
+  lucasAccount.withdraw(150);
+
+  // Toda SavingsAccounts/CurrentAccunt é uma BankAccount, mas nem toda BankAccount é uma SavingsAccounts/CurrentAccunt
   function transaction(
-    sender: CompositionBankAccount,
-    receiver: CompositionBankAccount,
+    sender: BankAccount,
+    receiver: BankAccount,
     amount: number
   ): void {
-    try {
+    if (amount > 0 && amount <= sender.balance) {
       sender.withdraw(amount);
       receiver.deposit(amount);
       console.log("Transaction successful");
-    } catch (error) {
-      console.log(error.message);
-
+    } else {
       console.log("Transaction failed: insufficient funds or invalid amount");
     }
   }

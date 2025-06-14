@@ -1,3 +1,8 @@
+// interface (contratos) - conjunto de atributos e métodos que deve ser implementado
+// pela classe.
+// Não possui implementação, programar "orientado a interface" deixa o código mais
+// flexivel e desaclopado
+// Pilar de abstração - lidar com ideias ao invés de objetos concretos
 export interface WithdrawStrategy {
   canWithdraw(balance: number, amount: number): boolean;
   executeWithdraw(balance: number, amount: number): number;
