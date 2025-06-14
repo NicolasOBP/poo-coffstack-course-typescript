@@ -1,7 +1,9 @@
 import { Person } from "./Person";
 
 //supper class - classe principal
-export class BankAccount {
+//Classe abstrata - base para outras classes, não pode ser instanciada
+// Metodos podem ser concretos (com implementaçaõ) ou abstratos (como interface)
+export abstract class BankAccount {
   private holder: Person; // composition (composiçaõ) - expressa relacionamento do tipo "contem um" entre 2 objetos
   protected _balance: number;
   private accountNumber: string;
@@ -49,4 +51,6 @@ export class BankAccount {
   get accountDetails(): string {
     return `Account number: ${this.accountNumber}\nAccount holder: ${this.holder.fullName}\nBalance: ${this._balance}`;
   }
+
+  abstract get accountType(): string;
 }

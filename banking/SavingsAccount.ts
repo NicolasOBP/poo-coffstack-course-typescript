@@ -4,6 +4,7 @@ import { Person } from "./Person";
 //subclass - herdando da BankAccount - expressa relacionamento do tipo "é um" entre 2 objetos
 export class SavingsAccounts extends BankAccount {
   private interestRate: number;
+  accountType = "Savings Accoutns";
 
   constructor(
     person: Person,
