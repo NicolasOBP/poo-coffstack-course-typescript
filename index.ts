@@ -12,13 +12,13 @@ function main() {
   // const mariaAccount = new BankAccount(maria, 100, "123");
 
   const maria = new Person("Maria", "da Silva", new Date("1990-10-10"));
-  const mariaAccount = new SavingsAccounts(maria, 100, "123", 10);
+  const mariaAccount = new SavingsAccounts(maria, 100, 10);
   const mariaCreditCard = new CreditCard("555 5552", 50);
 
   mariaAccount.addInterest();
 
   const lucas = new Person("Lucas", "Nogueira", new Date("1990-11-10"));
-  const lucasAccount = new CurrentAccount(lucas, 100, "123", 50);
+  const lucasAccount = new CurrentAccount(lucas, 100, 50);
 
   const payment = new ProcessPayment(lucasAccount, 100);
   payment.excecute();
@@ -47,7 +47,10 @@ function main() {
   transaction(lucasAccount, mariaAccount, 200);
 
   console.log(lucasAccount.accountType);
+  console.log(lucasAccount.accountDetails);
   console.log(mariaAccount.accountType);
+  console.log(mariaAccount.accountDetails);
+  console.log(BankAccount.validateAccountNumber("12345678"));
 }
 
 main();

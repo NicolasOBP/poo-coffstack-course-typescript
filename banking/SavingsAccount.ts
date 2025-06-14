@@ -4,15 +4,10 @@ import { Person } from "./Person";
 //subclass - herdando da BankAccount - expressa relacionamento do tipo "é um" entre 2 objetos
 export class SavingsAccounts extends BankAccount {
   private interestRate: number;
-  accountType = "Savings Accoutns";
+  accountType = "Savings Account";
 
-  constructor(
-    person: Person,
-    initialBalance: number,
-    accountNumber: string,
-    interestRate: number
-  ) {
-    super(person, initialBalance, accountNumber);
+  constructor(person: Person, initialBalance: number, interestRate: number) {
+    super(person, initialBalance);
     this.interestRate = interestRate;
   }
 
